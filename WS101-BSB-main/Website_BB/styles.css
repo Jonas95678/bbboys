@@ -1937,3 +1937,431 @@ body::after {
         color: black;
     }
 }
+
+
+/* ========================================
+   ENHANCED MODERN ANIMATIONS & EFFECTS
+   ======================================== */
+
+/* Particle Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 60px rgba(157, 78, 221, 0.4); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+@keyframes neonPulse {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+                     0 0 20px rgba(0, 212, 255, 0.3),
+                     0 0 30px rgba(0, 212, 255, 0.2);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.8),
+                     0 0 40px rgba(0, 212, 255, 0.5),
+                     0 0 60px rgba(0, 212, 255, 0.3);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Enhanced Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top::before {
+    content: '↑';
+    font-size: 1.5em;
+    color: var(--pure-white);
+    font-weight: bold;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.6),
+                0 0 60px rgba(157, 78, 221, 0.4);
+}
+
+/* Enhanced Timeline Dot Animation */
+.timeline-dot {
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, var(--neon-blue), transparent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Album Card Hover Enhancement */
+.album_card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.album_card:hover {
+    transform: translateY(-15px) scale(1.03);
+}
+
+.album_card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1) saturate(1.2);
+}
+
+/* Tracklist Item Hover */
+.tracklist li {
+    position: relative;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.tracklist li:hover {
+    background: rgba(0, 212, 255, 0.1);
+    padding-left: 25px;
+    color: var(--neon-blue);
+}
+
+.tracklist li::before {
+    content: '♪';
+    position: absolute;
+    left: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--neon-blue);
+}
+
+.tracklist li:hover::before {
+    opacity: 1;
+}
+
+/* Band Member Card Shine Effect */
+.band_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.band_card:hover::before {
+    left: 100%;
+}
+
+/* Image Overlay Gradient */
+.hero_banner::before,
+.about_hero::before,
+.history_hero::before,
+.songs_hero::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 22, 40, 0.3) 0%,
+        rgba(10, 22, 40, 0.5) 40%,
+        rgba(10, 22, 40, 0.95) 100%
+    );
+}
+
+/* Enhanced Section Dividers */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--neon-blue),
+        var(--electric-purple),
+        var(--neon-blue),
+        transparent
+    );
+    margin: 60px auto;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 3s infinite;
+}
+
+/* Spotlight Effect */
+.spotlight {
+    position: relative;
+}
+
+.spotlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        ellipse,
+        rgba(0, 212, 255, 0.15) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Glass Card Enhancement */
+.glass-card {
+    background: rgba(20, 33, 61, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(192, 192, 192, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Neon Border Animation */
+.neon-border {
+    position: relative;
+}
+
+.neon-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+        45deg,
+        var(--neon-blue),
+        var(--electric-purple),
+        var(--neon-blue)
+    );
+    border-radius: inherit;
+    z-index: -1;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.neon-border:hover::before {
+    opacity: 1;
+}
+
+/* Loading Screen Enhancement */
+.loader {
+    background: radial-gradient(ellipse at center, var(--midnight-blue) 0%, var(--deep-black) 100%);
+}
+
+/* Social Icons Enhancement */
+#socials a {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+#socials a:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+#socials a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: width 0.3s ease;
+}
+
+#socials a:hover::after {
+    width: 80%;
+}
+
+/* Footer Enhancement */
+.footer {
+    position: relative;
+    background: linear-gradient(to top, var(--deep-black) 0%, var(--dark-navy) 100%);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--neon-blue),
+        var(--electric-purple),
+        var(--neon-blue),
+        transparent
+    );
+}
+
+/* Responsive Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+    filter: brightness(1.1);
+}
+
+/* Badge/Tag Style */
+.badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 5px;
+}
+
+/* Fade In Up Animation Class */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Zoom In Animation Class */
+.zoom-in {
+    animation: scaleIn 0.6s ease forwards;
+}
+
+/* Slide In Left Animation Class */
+.slide-in-left {
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+/* Slide In Right Animation Class */
+.slide-in-right {
+    animation: slideInRight 0.8s ease forwards;
+}
+
+/* Delayed Animations */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
